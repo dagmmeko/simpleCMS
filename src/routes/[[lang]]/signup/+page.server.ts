@@ -3,7 +3,7 @@ import { fail, type Actions } from '@sveltejs/kit';
 import { redirect } from '@sveltejs/kit';
 import { LuciaError } from 'lucia-auth';
 import type { PageServerLoad } from './$types';
-import { User } from '$lib//server/lucia';
+import { User } from '$lib/models/user-model';
 
 export const actions: Actions = {
 	default: async ({ request, locals }) => {
