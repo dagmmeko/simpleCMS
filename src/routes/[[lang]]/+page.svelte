@@ -1,8 +1,10 @@
 <script lang="ts">
 	import { signOut, getUser } from '@lucia-auth/sveltekit/client';
 	import { invalidateAll } from '$app/navigation';
-	const user = getUser();
 	import LL from '../../lib/i18n/i18n-svelte';
+
+	const user = getUser();
+	$: console.log({u: $user?.role })
 </script>
 
 <div class="">

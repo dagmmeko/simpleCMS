@@ -65,7 +65,7 @@
 			</h1>
 		</div>
 
-		<form>
+		<form method="post" action="?/createUser">
 			<!-- Email field -->
 			<div class="group relative z-0 mb-6 w-full">
 				<input
@@ -187,12 +187,13 @@
 					<div class="absolute top-11 left-0 text-xs text-error-500">{errorStatus.confirm.msg}</div>
 				{/if}
 			</div>
+			<!-- TODO Skeleton Css not working -->
+			<button class="btn btn-sm mt-4 rounded-md bg-white text-black">
+				{$LL.LOGIN_SignUp()}
+			</button>
 		</form>
 
-		<!-- TODO Skeleton Css not working -->
-		<button on:click={signup} class="btn btn-sm mt-4 rounded-md bg-white text-black"
-			>{$LL.LOGIN_SignUp()}</button
-		>
+		
 	</div>
 </div>
 

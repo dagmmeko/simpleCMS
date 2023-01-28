@@ -2,7 +2,7 @@
 	import Icon from '@iconify/svelte';
 	
 	import CMSLogo from './icons/Logo.svelte';
-	import { goto } from '$app/navigation';
+	// import { goto } from '$app/navigation';
 
 	// typesafe-i18n
 	import LL from '../../../../lib/i18n/i18n-svelte';
@@ -11,8 +11,8 @@
 
 	let showPassword: boolean = false;
 	let forgot: boolean = false;
-	let email = '';
-	let password = '';
+	export let email = '';
+	export let password = '';
 	let errorStatus = {
 		email: { status: false, msg: '' },
 		confirm: { status: false, msg: '' },
@@ -57,7 +57,7 @@
 				</h1>
 			</div>
 
-			<form>
+			<form method="post" action="?/authUser">
 				<!-- Email field -->
 				<div class="group relative z-0 mb-6 w-full">
 					<input
@@ -132,21 +132,21 @@
 						</div>
 					{/if}
 				</div>
+				<div class="buttons">
+					<button
+						class="btn btn-sm  mt-4 rounded-lg border bg-surface-700 text-white "
+						>{$LL.LOGIN_SignIn()}</button
+					>
+	
+					<button
+						on:click={() => (forgot = true)}
+						class="btn btn-sm  mt-4 ml-4 rounded-lg border border-surface-700  text-surface-700 "
+						>{$LL.LOGIN_ForgottenPassword()}</button
+					>
+				</div>
 			</form>
 
-			<div class="buttons">
-				<button
-					on:click={signin}
-					class="btn btn-sm  mt-4 rounded-lg border bg-surface-700 text-white "
-					>{$LL.LOGIN_SignIn()}</button
-				>
-
-				<button
-					on:click={() => (forgot = true)}
-					class="btn btn-sm  mt-4 ml-4 rounded-lg border border-surface-700  text-surface-700 "
-					>{$LL.LOGIN_ForgottenPassword()}</button
-				>
-			</div>
+			
 		</div>
 	{:else}
 		<form class="mx-auto w-full p-4 lg:w-1/2">

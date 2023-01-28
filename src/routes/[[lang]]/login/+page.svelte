@@ -5,6 +5,9 @@
 
 	let active: undefined | 0 | 1 = undefined;
 	let background: 'white' | '#242728' = 'white';
+
+	// let email: string;
+	// let password: string;
 </script>
 
 <div class="body" style="background:{background} ">

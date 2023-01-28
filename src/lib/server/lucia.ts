@@ -9,10 +9,14 @@ import mongoose from 'mongoose';
 export const auth = lucia({
 	adapter: adapter(mongoose),
 	env: dev ? 'DEV' : 'PROD',
+	autoDatabaseCleanup: true,
 	transformUserData: (userData) => {
+	
+	console.log({userData})
 		return {
 			userId: userData.id,
-			username: userData.username
+			username: userData.username,
+			role: userData.role
 		};
 	}
 });
