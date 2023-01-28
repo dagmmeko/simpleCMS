@@ -1,31 +1,30 @@
 <script lang="ts">
-	import { enhance } from '$app/forms';
+	import RoundLogo from './components/icons/RoundLogo.svelte';
+	import Signin from './components/Signin.svelte';
+	import SignUp from './components/Signup.svelte';
 
-	export let form: { message?: string };
+	let active: undefined | 0 | 1 = undefined;
+	let background: 'white' | '#242728' = 'white';
 </script>
 
-<h2>Sign in</h2>
-<a href="/api/oauth?provider=github" class="button">Continue with Github</a>
-<p class="center">or</p>
-<form
-	method="post"
-	use:enhance={({ data, cancel }) => {
-		form = {};
-		const username = data.get('username')?.toString() || '';
-		const password = data.get('password')?.toString() || '';
-		if (!username || !password) {
-			form.message = 'Invalid input';
-			cancel();
-		}
-	}}
->
-	<label for="username">username</label><br />
-	<input id="username" name="username" /><br />
-	<label for="password">password</label><br />
-	<input type="password" id="password" name="password" /><br />
-	<input type="submit" value="Continue" class="button" />
-</form>
-{#if form?.message}
-	<p class="error">{form.message || ''}</p>
-{/if}
-<a href="/signup" class="link">Create a new account</a>
+<div class="body" style="background:{background} ">
+	<Signin {active} on:click={() => (active = 0)} on:pointerenter={() => (background = '#242728')} />
+	<SignUp {active} on:click={() => (active = 1)} on:pointerenter={() => (background = 'white')} />
+	{#if active == undefined}
+		<div class="z-30"><RoundLogo /></div>
+	{/if}
+</div>
+
+<style>
+	.body {
+		width: 100vw;
+		height: 100vh;
+		display: flex;
+		background: linear-gradient(90deg, #242728 50%, white 50%);
+	}
+	:global(html, body, body > div, .body) {
+		width: 100vw;
+		height: 100vh;
+		overflow: hidden;
+	}
+</style>
