@@ -3,7 +3,9 @@ declare namespace Lucia {
 	type Auth = import('$lib/server/lucia.js').Auth;
 	type UserAttributes = {
 		username: string;
-		role: 'ADMIN' | 'USER'
+		role: 'ADMIN' | 'USER',
+		resetRequestedAt: Date,
+		resetToken: string
 	};
 }
 

@@ -5,6 +5,7 @@
 
 	// typesafe-i18n
 	import LL from '../../../../lib/i18n/i18n-svelte';
+	import { enhance } from '$app/forms';
 
 	export let show: boolean = false;
 
@@ -18,7 +19,7 @@
 	let password = '';
 	let confirmPassword = '';
 
-	async function signup() {
+	function hasSignUpError() {
 		email = email.trim();
 		let emailRegex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 		let error = false;
@@ -49,7 +50,7 @@
 			error = true;
 		}
 
-		if (error) return;
+		return error;
 		
 	}
 </script>
@@ -65,7 +66,11 @@
 			</h1>
 		</div>
 
-		<form method="post" action="?/createUser">
+		<form method="post" action="?/createUser" use:enhance={e=>{
+			if (hasSignUpError()){
+				e.cancel()
+			}
+		}}>
 			<!-- Email field -->
 			<div class="group relative z-0 mb-6 w-full">
 				<input

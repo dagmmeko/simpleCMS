@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 
-export const User = mongoose.model(
-	'user',
+const UserSchema = 
 	new mongoose.Schema(
 		{
 			_id: {
@@ -18,4 +17,5 @@ export const User = mongoose.model(
 		},
 		{ _id: false }
 	)
-);
+
+export const User = mongoose.models.User ?? mongoose.model('user', UserSchema)

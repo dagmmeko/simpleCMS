@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 
-export const Session = mongoose.model(
-	'session',
+const SessionSchema = 
 	new mongoose.Schema(
 		{
 			_id: {
@@ -22,4 +21,4 @@ export const Session = mongoose.model(
 		},
 		{ _id: false }
 	)
-);
+export const Session = mongoose.models.Session ??  mongoose.model('session', SessionSchema)

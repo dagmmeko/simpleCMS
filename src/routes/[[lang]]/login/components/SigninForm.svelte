@@ -6,6 +6,7 @@
 
 	// typesafe-i18n
 	import LL from '../../../../lib/i18n/i18n-svelte';
+	import { enhance } from '$app/forms';
 
 	export let show: boolean = false;
 
@@ -20,7 +21,7 @@
 	};
 	let form: HTMLDivElement;
 
-	async function signin() {
+	function hasSignInError() {
 		email = email.trim();
 		let emailRegex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 		let error = false;
@@ -44,6 +45,8 @@
 			errorStatus.password.status = true;
 			error = true;
 		}
+
+		return error
 	}
 </script>
 
@@ -57,7 +60,11 @@
 				</h1>
 			</div>
 
-			<form method="post" action="?/authUser">
+			<form method="post" action="?/authUser" use:enhance={e=>{
+				if (hasSignInError()){
+					e.cancel()
+				}
+			}}>
 				<!-- Email field -->
 				<div class="group relative z-0 mb-6 w-full">
 					<input
@@ -149,7 +156,7 @@
 			
 		</div>
 	{:else}
-		<form class="mx-auto w-full p-4 lg:w-1/2">
+		<form class="mx-auto w-full p-4 lg:w-1/2" action="?/forgotPassword">
 			<div class="mb-8 flex flex-row gap-2">
 				<CMSLogo className="w-10" fill="red" />
 				<h1 class="text-3xl font-bold text-black ">{$LL.LOGIN_ForgottenPassword()}</h1>

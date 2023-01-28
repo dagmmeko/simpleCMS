@@ -104,5 +104,17 @@ export const actions: Actions = {
 				message: 'Unknown error occurred'
 			});
 		}
+	},
+	forgotPassword: async ({request, locals})=>{
+		const form = await request.formData();
+
+		const username = form.get('floating_email');
+
+
+		const data = User.findOneAndUpdate({provider_id: `username:${username}`}, {
+			resetRequestedAt: new Date(),
+			resetToken: ''
+		})
+
 	}
 };
