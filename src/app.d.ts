@@ -4,8 +4,8 @@ declare namespace Lucia {
 	type UserAttributes = {
 		username: string;
 		role: 'ADMIN' | 'USER',
-		resetRequestedAt: Date,
-		resetToken: string
+		resetRequestedAt: Date | undefined,
+		resetToken: string | undefined
 	};
 }
 

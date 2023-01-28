@@ -65,7 +65,9 @@ export const actions: Actions = {
 					password,
 					attributes: {
 						username,
-						role: 'ADMIN'
+						role: 'ADMIN',
+						resetRequestedAt: undefined,
+						resetToken: undefined
 					}
 				});
 				const session = await auth.createSession(user.userId);
@@ -76,7 +78,9 @@ export const actions: Actions = {
 					password,
 					attributes: {
 						username,
-						role: 'USER'
+						role: 'USER',
+						resetRequestedAt: undefined,
+						resetToken: undefined
 					}
 				});
 				const session = await auth.createSession(user.userId);
