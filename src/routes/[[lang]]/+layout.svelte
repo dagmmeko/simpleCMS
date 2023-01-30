@@ -2,10 +2,10 @@
 	import '@skeletonlabs/skeleton/themes/theme-skeleton.css';
 	import '../../Theme.postcss';
 	import '../../app.postcss';
-	
+
 	import { page } from '$app/stores';
 	import { handleSession } from '@lucia-auth/sveltekit/client';
-	
+
 	handleSession(page);
 </script>
 

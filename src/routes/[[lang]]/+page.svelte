@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { signOut, getUser } from '@lucia-auth/sveltekit/client';
+	import { getUser } from '@lucia-auth/sveltekit/client';
 	import { invalidateAll } from '$app/navigation';
 	import LL from '../../lib/i18n/i18n-svelte';
+	import { enhance } from '$app/forms';
 
 	const user = getUser();
-	$: console.log({u: $user?.role })
 </script>
 
 <div class="">
@@ -18,10 +18,12 @@
 {JSON.stringify($user, null, 2)}
 </pre>
 
-
-<button
-	on:click={async () => {
-		await signOut();
+<form
+	action="?/signOut"
+	method="post"
+	use:enhance={async () => {
 		invalidateAll();
-	}}>Sign out</button
+	}}
 >
+	<button type="submit">Sign out</button>
+</form>

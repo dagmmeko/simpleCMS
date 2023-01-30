@@ -1,21 +1,16 @@
 import mongoose from 'mongoose';
 
-const UserSchema = 
-	new mongoose.Schema(
-		{
-			_id: {
-				type: String
-			},
-			provider_id: {
-				type: String,
-				unique: true,
-				required: true
-			},
-			hashed_password: String,
-			username: String,
-			role: String
+const UserSchema = new mongoose.Schema(
+	{
+		_id: {
+			type: String
 		},
-		{ _id: false }
-	)
+		username: String,
+		role: String,
+		resetRequestedAt: String,
+		resetToken: String
+	},
+	{ _id: false }
+);
 
-export const User = mongoose.models.User ?? mongoose.model('user', UserSchema)
+export const User = mongoose.models.user ?? mongoose.model('user', UserSchema);

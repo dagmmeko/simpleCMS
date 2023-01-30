@@ -2,8 +2,6 @@
 	export let active: undefined | 0 | 1 = undefined;
 	import SigninIcon from './icons/SigninIcon.svelte';
 	import SigninForm from './SigninForm.svelte';
-
-
 </script>
 
 <div

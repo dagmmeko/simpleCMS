@@ -51,7 +51,6 @@
 		}
 
 		return error;
-		
 	}
 </script>
 
@@ -66,11 +65,15 @@
 			</h1>
 		</div>
 
-		<form method="post" action="?/createUser" use:enhance={e=>{
-			if (hasSignUpError()){
-				e.cancel()
-			}
-		}}>
+		<form
+			method="post"
+			action="?/createUser"
+			use:enhance={(e) => {
+				if (hasSignUpError()) {
+					e.cancel();
+				}
+			}}
+		>
 			<!-- Email field -->
 			<div class="group relative z-0 mb-6 w-full">
 				<input
@@ -197,8 +200,6 @@
 				{$LL.LOGIN_SignUp()}
 			</button>
 		</form>
-
-		
 	</div>
 </div>
 

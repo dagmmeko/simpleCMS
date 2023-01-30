@@ -1,5 +1,6 @@
-import  '$lib/models/user-model';
+import '$lib/models/user-model';
 import '$lib/models/session-model';
+import '$lib/models/key-model'
 
 import lucia from 'lucia-auth';
 import { dev } from '$app/environment';
@@ -11,8 +12,6 @@ export const auth = lucia({
 	env: dev ? 'DEV' : 'PROD',
 	autoDatabaseCleanup: true,
 	transformUserData: (userData) => {
-	
-	console.log({userData})
 		return {
 			userId: userData.id,
 			username: userData.username,

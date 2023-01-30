@@ -2,12 +2,12 @@ lockfileVersion: 5.4
 
 specifiers:
   '@iconify/svelte': ^3.1.0
-  '@lucia-auth/adapter-mongoose': 0.2.1
-  '@lucia-auth/oauth': latest
-  '@lucia-auth/sveltekit': latest
+  '@lucia-auth/adapter-mongoose': 0.3.0
+  '@lucia-auth/oauth': 0.5.0
+  '@lucia-auth/sveltekit': 0.6.0
   '@skeletonlabs/skeleton': 0.99.5
-  '@sveltejs/adapter-auto': latest
-  '@sveltejs/kit': ^1.3.2
+  '@sveltejs/adapter-node': latest
+  '@sveltejs/kit': 1.3.2
   '@tailwindcss/forms': 0.5.3
   '@tailwindcss/line-clamp': 0.4.2
   '@tailwindcss/typography': 0.5.9
@@ -19,8 +19,8 @@ specifiers:
   eslint: 8.32.0
   eslint-config-prettier: 8.6.0
   eslint-plugin-svelte3: 4.0.0
-  ioredis: ^5.3.0
-  lucia-auth: latest
+  ioredis: 5.3.0
+  lucia-auth: 0.5.0
   mongoose: 6.9.0
   npm-run-all: 4.1.5
   postcss: 8.4.21
@@ -38,20 +38,20 @@ specifiers:
 
 dependencies:
   '@iconify/svelte': 3.1.0_svelte@3.55.1
-  '@lucia-auth/adapter-mongoose': 0.2.1
-  '@lucia-auth/oauth': 0.4.0_lucia-auth@0.4.3
-  '@lucia-auth/sveltekit': 0.5.3_fec62evc6llxeegip47f74apjq
+  '@lucia-auth/adapter-mongoose': 0.3.0
+  '@lucia-auth/oauth': 0.5.0_lucia-auth@0.5.0
+  '@lucia-auth/sveltekit': 0.6.0_fijhmujhdy34pkab2k6wm2jrs4
   '@tailwindcss/forms': 0.5.3_tailwindcss@3.2.4
   '@tailwindcss/line-clamp': 0.4.2_tailwindcss@3.2.4
   '@tailwindcss/typography': 0.5.9_tailwindcss@3.2.4
   devalue: 4.2.2
   ioredis: 5.3.0
-  lucia-auth: 0.4.3
+  lucia-auth: 0.5.0
   mongoose: 6.9.0
 
 devDependencies:
   '@skeletonlabs/skeleton': 0.99.5
-  '@sveltejs/adapter-auto': 1.0.2_@sveltejs+kit@1.3.2
+  '@sveltejs/adapter-node': 1.1.4_@sveltejs+kit@1.3.2
   '@sveltejs/kit': 1.3.2_svelte@3.55.1+vite@4.0.4
   '@types/cookie': 0.5.1
   '@typescript-eslint/eslint-plugin': 5.49.0_iu322prlnwsygkcra5kbpy22si
@@ -1159,32 +1159,32 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
-  /@lucia-auth/adapter-mongoose/0.2.1:
-    resolution: {integrity: sha512-IODwJoL0+WHDk2mkz7u+Aw5pcwD06uEcFYmuP+D8D1AC3PAVc4zdw/ZW0gDd6Ss7waYwKEiBonh6kSX0sSGfsQ==}
+  /@lucia-auth/adapter-mongoose/0.3.0:
+    resolution: {integrity: sha512-8z6TvoQNKMTwc0VUAgXnvLrvnuI/+p3k9xPmUWlwa/abrDjJh42cOgN0TBLSb1MeEN7qrYmhZ0GVAK8VggdTyg==}
     dependencies:
-      lucia-auth: 0.4.3
+      lucia-auth: 0.5.0
       mongoose: 6.9.0
     transitivePeerDependencies:
       - aws-crt
       - supports-color
     dev: false
 
-  /@lucia-auth/oauth/0.4.0_lucia-auth@0.4.3:
-    resolution: {integrity: sha512-PLwiSP4+ttKlxw7pL3DJhAk6sNdZrPLk5hVltb1y4uLz3EPY+3rH/PtHYPt1e1R3IuxmsnpL2DJv8uf0ISY4Jw==}
+  /@lucia-auth/oauth/0.5.0_lucia-auth@0.5.0:
+    resolution: {integrity: sha512-68xM3Ls9NhZTIRntzXfed/mge9KYzrTQmNJQRk1gk2YOCkHKXU1zf8ZimWLa+mrxjDFzugLqWx64+UuVamuAOw==}
     peerDependencies:
-      lucia-auth: 0.1.x - 0.4.x
+      lucia-auth: 0.5.x
     dependencies:
-      lucia-auth: 0.4.3
+      lucia-auth: 0.5.0
     dev: false
 
-  /@lucia-auth/sveltekit/0.5.3_fec62evc6llxeegip47f74apjq:
-    resolution: {integrity: sha512-X6FtMBqNKuUzrqrR+LOcJVNdDcyZNlm7zSgYRl6s4Okab0HS05IAWwh3X5rVc6n3NPQDgbfR44FDc3ihN8oqGw==}
+  /@lucia-auth/sveltekit/0.6.0_fijhmujhdy34pkab2k6wm2jrs4:
+    resolution: {integrity: sha512-11M6iyf/yqa6czPEz+jxiiauRqrzz0ygVVLVAgmx+fISBAIhJiY5XWcGVqYrlG+YXXw7aaQsiHs7V5j/hLS79g==}
     peerDependencies:
-      lucia-auth: 0.3.x - 0.4.x
+      lucia-auth: 0.5.x
       svelte: 3.x
     dependencies:
       '@noble/hashes': 1.1.5
-      lucia-auth: 0.4.3
+      lucia-auth: 0.5.0
       svelte: 3.55.1
     dev: false
 
@@ -1214,17 +1214,84 @@ packages:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
     dev: true
 
+  /@rollup/plugin-commonjs/24.0.1_rollup@3.12.0:
+    resolution: {integrity: sha512-15LsiWRZk4eOGqvrJyu3z3DaBu5BhXIMeWnijSRvd8irrrg9SHpQ1pH+BUK4H6Z9wL9yOxZJMTLU+Au86XHxow==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      rollup: ^2.68.0||^3.0.0
+    peerDependenciesMeta:
+      rollup:
+        optional: true
+    dependencies:
+      '@rollup/pluginutils': 5.0.2_rollup@3.12.0
+      commondir: 1.0.1
+      estree-walker: 2.0.2
+      glob: 8.1.0
+      is-reference: 1.2.1
+      magic-string: 0.27.0
+      rollup: 3.12.0
+    dev: true
+
+  /@rollup/plugin-json/6.0.0_rollup@3.12.0:
+    resolution: {integrity: sha512-i/4C5Jrdr1XUarRhVu27EEwjt4GObltD7c+MkCIpO2QIbojw8MUs+CCTqOphQi3Qtg1FLmYt+l+6YeoIf51J7w==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      rollup: ^1.20.0||^2.0.0||^3.0.0
+    peerDependenciesMeta:
+      rollup:
+        optional: true
+    dependencies:
+      '@rollup/pluginutils': 5.0.2_rollup@3.12.0
+      rollup: 3.12.0
+    dev: true
+
+  /@rollup/plugin-node-resolve/15.0.1_rollup@3.12.0:
+    resolution: {integrity: sha512-ReY88T7JhJjeRVbfCyNj+NXAG3IIsVMsX9b5/9jC98dRP8/yxlZdz7mHZbHk5zHr24wZZICS5AcXsFZAXYUQEg==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      rollup: ^2.78.0||^3.0.0
+    peerDependenciesMeta:
+      rollup:
+        optional: true
+    dependencies:
+      '@rollup/pluginutils': 5.0.2_rollup@3.12.0
+      '@types/resolve': 1.20.2
+      deepmerge: 4.2.2
+      is-builtin-module: 3.2.0
+      is-module: 1.0.0
+      resolve: 1.22.1
+      rollup: 3.12.0
+    dev: true
+
+  /@rollup/pluginutils/5.0.2_rollup@3.12.0:
+    resolution: {integrity: sha512-pTd9rIsP92h+B6wWwFbW8RkZv4hiR/xKsqre4SIuAOaOEQRxi0lqLke9k2/7WegC85GgUs9pjmOjCUi3In4vwA==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      rollup: ^1.20.0||^2.0.0||^3.0.0
+    peerDependenciesMeta:
+      rollup:
+        optional: true
+    dependencies:
+      '@types/estree': 1.0.0
+      estree-walker: 2.0.2
+      picomatch: 2.3.1
+      rollup: 3.12.0
+    dev: true
+
   /@skeletonlabs/skeleton/0.99.5:
     resolution: {integrity: sha512-P3YvmAItNk/IzT6ma9q1D3T8leiit+T4BgpVynWuKOZg9FVWakB1M88ncuuEOkk+nAH/cGtjIEtougGB9+ynNw==}
     dev: true
 
-  /@sveltejs/adapter-auto/1.0.2_@sveltejs+kit@1.3.2:
-    resolution: {integrity: sha512-UXpEO/gutERZnD+Z5Vi4J/ifD3WSRuCI7xwtLJTcKNQvJ6t5Xsj1X3Mw2F8Vv/XTUuxf7xPLYUgThU331r0Y9w==}
+  /@sveltejs/adapter-node/1.1.4_@sveltejs+kit@1.3.2:
+    resolution: {integrity: sha512-3iEBqi1fXLXP9YIbVuz2LXajoebRJCmAFEQbN40DlxAnA7G+InxUgnqFun3q9gBMz2Qvd99K51g/HxWetXRe8Q==}
     peerDependencies:
       '@sveltejs/kit': ^1.0.0
     dependencies:
+      '@rollup/plugin-commonjs': 24.0.1_rollup@3.12.0
+      '@rollup/plugin-json': 6.0.0_rollup@3.12.0
+      '@rollup/plugin-node-resolve': 15.0.1_rollup@3.12.0
       '@sveltejs/kit': 1.3.2_svelte@3.55.1+vite@4.0.4
-      import-meta-resolve: 2.2.1
+      rollup: 3.12.0
     dev: true
 
   /@sveltejs/kit/1.3.2_svelte@3.55.1+vite@4.0.4:
@@ -1307,6 +1374,10 @@ packages:
     resolution: {integrity: sha512-COUnqfB2+ckwXXSFInsFdOAWQzCCx+a5hq2ruyj+Vjund94RJQd4LG2u9hnvJrTgunKAaax7ancBYlDrNYxA0g==}
     dev: true
 
+  /@types/estree/1.0.0:
+    resolution: {integrity: sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==}
+    dev: true
+
   /@types/json-schema/7.0.11:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}
     dev: true
@@ -1316,6 +1387,10 @@ packages:
 
   /@types/pug/2.0.6:
     resolution: {integrity: sha512-SnHmG9wN1UVmagJOnyo/qkk0Z7gejYxOYYmaAwr5u2yFYfsupN3sg10kyzN8Hep/2zbHxCnsumxOoRIRMBwKCg==}
+    dev: true
+
+  /@types/resolve/1.20.2:
+    resolution: {integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==}
     dev: true
 
   /@types/sass/1.43.1:
@@ -1590,6 +1665,12 @@ packages:
       concat-map: 0.0.1
     dev: true
 
+  /brace-expansion/2.0.1:
+    resolution: {integrity: sha512-XnAIvQ8eM+kC6aULx6wuQiwVsnzsi9d3WxzV3FpWTGA19F621kwdbsAcFKXgKUHZWsy+mY6iL1sHTxWEFCytDA==}
+    dependencies:
+      balanced-match: 1.0.2
+    dev: true
+
   /braces/3.0.2:
     resolution: {integrity: sha512-b8um+L1RzM3WDSzvhm6gIz1yfTbBt6YTlcEKAvsmqCZZFw46z626lVj9j1yEPW33H5H+lBQpZMP1k8l+78Ha0A==}
     engines: {node: '>=8'}
@@ -1624,6 +1705,11 @@ packages:
       base64-js: 1.5.1
       ieee754: 1.2.1
     dev: false
+
+  /builtin-modules/3.3.0:
+    resolution: {integrity: sha512-zhaCDicdLuWN5UbN5IMnFqNMhNfo919sH85y2/ea+5Yg9TsTkeZxpL+JLbp6cgYFS4sRLp3YV4S6yDuqVWHYOw==}
+    engines: {node: '>=6'}
+    dev: true
 
   /busboy/1.6.0:
     resolution: {integrity: sha512-8SFQbg/0hQ9xy3UNTB0YEnsNBbWfhf7RtnzpL7TkBiTBRfrQ9Fxcnz7VJsleJpyp6rVLvXiuORqjlHi5q+PYuA==}
@@ -1707,6 +1793,10 @@ packages:
 
   /color-name/1.1.4:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
+
+  /commondir/1.0.1:
+    resolution: {integrity: sha512-W9pAhw0ja1Edb5GVdIF1mjZw/ASI0AlShXM83UUGe2DVr5TdAPEA1OA8m/g8zWp9x6On7gqufY+FatDbC3MDQg==}
+    dev: true
 
   /concat-map/0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
@@ -2071,6 +2161,10 @@ packages:
     engines: {node: '>=4.0'}
     dev: true
 
+  /estree-walker/2.0.2:
+    resolution: {integrity: sha512-Rfkk/Mp/DL7JVje3u18FxFujQlTNR2q6QfMSMB7AvCBx91NGj/ba3kCfza0f6dVDbw7YlRf/nDrn7pQrCCyQ/w==}
+    dev: true
+
   /esutils/2.0.3:
     resolution: {integrity: sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==}
     engines: {node: '>=0.10.0'}
@@ -2221,6 +2315,17 @@ packages:
       path-is-absolute: 1.0.1
     dev: true
 
+  /glob/8.1.0:
+    resolution: {integrity: sha512-r8hpEjiQEYlF2QU0df3dS+nxxSIreXQS1qRhMJM0Q5NDdR386C7jb7Hwwod8Fgiuex+k0GFjgft18yvxm5XoCQ==}
+    engines: {node: '>=12'}
+    dependencies:
+      fs.realpath: 1.0.0
+      inflight: 1.0.6
+      inherits: 2.0.4
+      minimatch: 5.1.6
+      once: 1.4.0
+    dev: true
+
   /globals/13.19.0:
     resolution: {integrity: sha512-dkQ957uSRWHw7CFXLUtUHQI3g3aWApYhfNR2O6jn/907riyTYKVBmxYVROkBcY614FSSeSJh7Xm7SrUWCxvJMQ==}
     engines: {node: '>=8'}
@@ -2333,10 +2438,6 @@ packages:
       resolve-from: 4.0.0
     dev: true
 
-  /import-meta-resolve/2.2.1:
-    resolution: {integrity: sha512-C6lLL7EJPY44kBvA80gq4uMsVFw5x3oSKfuMl1cuZ2RkI5+UJqQXgn+6hlUew0y4ig7Ypt4CObAAIzU53Nfpuw==}
-    dev: true
-
   /imurmurhash/0.1.4:
     resolution: {integrity: sha512-JmXMZ6wuvDmLiHEml9ykzqO6lwFbof0GG4IkcGaENdCRDDmMVnny7s5HsIgHCbaq0w2MyPhDqkhTUgS2LU2PHA==}
     engines: {node: '>=0.8.19'}
@@ -2415,6 +2516,13 @@ packages:
       has-tostringtag: 1.0.0
     dev: true
 
+  /is-builtin-module/3.2.0:
+    resolution: {integrity: sha512-phDA4oSGt7vl1n5tJvTWooWWAsXLY+2xCnxNqvKhGEzujg+A43wPlPOyDg3C8XQHN+6k/JTQWJ/j0dQh/qr+Hw==}
+    engines: {node: '>=6'}
+    dependencies:
+      builtin-modules: 3.3.0
+    dev: true
+
   /is-callable/1.2.7:
     resolution: {integrity: sha512-1BC0BVFhS/p0qtw6enp8e+8OD0UrK0oFLztSjNzhcKA3WDuJxxAPXzPuPtKkjEY9UUoEWlX/8fgKeu2S8i9JTA==}
     engines: {node: '>= 0.4'}
@@ -2442,6 +2550,10 @@ packages:
     dependencies:
       is-extglob: 2.1.1
 
+  /is-module/1.0.0:
+    resolution: {integrity: sha512-51ypPSPCoTEIN9dy5Oy+h4pShgJmPCygKfyRCISBI+JoWT/2oJvK8QPxmwv7b/p239jXrm9M1mlQbyKJ5A152g==}
+    dev: true
+
   /is-negative-zero/2.0.2:
     resolution: {integrity: sha512-dqJvarLawXsFbNDeJW7zAz8ItJ9cd28YufuuFzh0G8pNHjJMnY08Dv7sYX2uF5UpQOwieAeOExEYAWWfu7ZZUA==}
     engines: {node: '>= 0.4'}
@@ -2461,6 +2573,12 @@ packages:
   /is-path-inside/3.0.3:
     resolution: {integrity: sha512-Fd4gABb+ycGAmKou8eMftCupSir5lRxqf4aD/vd0cD2qc4HL07OjCeuHMr8Ro4CoMaeCKDB0/ECBOVWjTwUvPQ==}
     engines: {node: '>=8'}
+    dev: true
+
+  /is-reference/1.2.1:
+    resolution: {integrity: sha512-U82MsXXiFIrjCK4otLT+o2NA2Cd2g5MLoOVXUZjIOhLurrRxpEXzI8O0KZHr3IjLvlAH1kTPYSuqer5T9ZVBKQ==}
+    dependencies:
+      '@types/estree': 1.0.0
     dev: true
 
   /is-regex/1.1.4:
@@ -2600,8 +2718,8 @@ packages:
       yallist: 4.0.0
     dev: true
 
-  /lucia-auth/0.4.3:
-    resolution: {integrity: sha512-8rMIWivQ0BLpMjxzLh4GU4Dk83pRes+46QOnUB2GaF6mEDHmQkzUO8uWqBge57ke79aZq5T2NywQjtJJujly4g==}
+  /lucia-auth/0.5.0:
+    resolution: {integrity: sha512-5MggZumiekg4FjBAT30c1cJegcZc5FkDN/G+EWZ7NSAJ/wFe0AoxoRmTTjtOTtymaqBp/MvbA1WmwJ6pt1RaXw==}
     dependencies:
       '@noble/hashes': 1.1.5
       nanoid: 4.0.0
@@ -2655,6 +2773,13 @@ packages:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
     dependencies:
       brace-expansion: 1.1.11
+    dev: true
+
+  /minimatch/5.1.6:
+    resolution: {integrity: sha512-lKwV/1brpG6mBUFHtb7NUmtABCb2WZZmm2wNiOA5hAb8VdCS4B3dtMWyvcoViccwAW/COERjXLt0zP1zXUN26g==}
+    engines: {node: '>=10'}
+    dependencies:
+      brace-expansion: 2.0.1
     dev: true
 
   /minimist/1.2.7:

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
-	
+
 	import CMSLogo from './icons/Logo.svelte';
 	// import { goto } from '$app/navigation';
 
@@ -46,7 +46,7 @@
 			error = true;
 		}
 
-		return error
+		return error;
 	}
 </script>
 
@@ -60,11 +60,15 @@
 				</h1>
 			</div>
 
-			<form method="post" action="?/authUser" use:enhance={e=>{
-				if (hasSignInError()){
-					e.cancel()
-				}
-			}}>
+			<form
+				method="post"
+				action="?/authUser"
+				use:enhance={(e) => {
+					if (hasSignInError()) {
+						e.cancel();
+					}
+				}}
+			>
 				<!-- Email field -->
 				<div class="group relative z-0 mb-6 w-full">
 					<input
@@ -140,11 +144,10 @@
 					{/if}
 				</div>
 				<div class="buttons">
-					<button
-						class="btn btn-sm  mt-4 rounded-lg border bg-surface-700 text-white "
+					<button class="btn btn-sm  mt-4 rounded-lg border bg-surface-700 text-white "
 						>{$LL.LOGIN_SignIn()}</button
 					>
-	
+
 					<button
 						on:click={() => (forgot = true)}
 						class="btn btn-sm  mt-4 ml-4 rounded-lg border border-surface-700  text-surface-700 "
@@ -152,8 +155,6 @@
 					>
 				</div>
 			</form>
-
-			
 		</div>
 	{:else}
 		<form class="mx-auto w-full p-4 lg:w-1/2" action="?/forgotPassword">

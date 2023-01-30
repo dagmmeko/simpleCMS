@@ -1,4 +1,3 @@
-
 import { auth } from '$lib/server/lucia';
 import { dbConnect } from '$lib/utils/db';
 import { handleHooks } from '@lucia-auth/sveltekit';
